@@ -1,0 +1,78 @@
+$panelWidth: 10em;
+$panelHeight: $panelWidth * 2;
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	font-family: sans-serif;
+	background: #000;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+h1 {
+	margin: 2em;
+}
+
+[data-picture] {
+	display: block;
+	position: relative;
+	width: $panelWidth * 3;
+	height: $panelHeight * 2;
+}
+
+[data-picture] > * {
+	position: absolute;
+	display: block;
+	background: rgba(255,0,0,1);
+	border: 2px solid #000;
+	padding: .5em;
+	width: $panelWidth;
+	height: $panelHeight;
+	opacity: .25;
+	transition: width 1s, height 1s, z-index 1s, top 1s, left 1s, opacity 1s;
+}
+
+[data-picture] > *:nth-child(1) {
+	left: $panelWidth * 0;
+	top: $panelHeight / 2;
+	z-index: 5;
+}
+[data-picture] > *:nth-child(2) {
+	left: $panelWidth * .5;
+	top: 0em;
+	z-index: 4;
+}
+[data-picture] > *:nth-child(3) {
+	left: $panelWidth * 1;
+	top: $panelHeight / 2;
+	z-index: 5;
+}
+[data-picture] > *:nth-child(4) {
+	left: $panelWidth * 1.5;
+	top: 0em;
+	z-index: 4;
+}
+[data-picture] > *:nth-child(5) {
+	left: $panelWidth * 2;
+	top: $panelHeight / 2;
+	z-index: 5;
+}
+
+[data-picture] > *[data-status = "active"] {
+	z-index: 10;
+	opacity: 1;
+	width: $panelWidth * 2;
+	height: $panelHeight * 2;
+	top: 0em;
+	left: 0em;
+}
